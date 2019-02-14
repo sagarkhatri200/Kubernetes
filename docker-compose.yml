@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  kubeapi:
+    image: kubeapi
+    ports:
+      - 4001:80
+    build:
+      context: ./KubeAPI/KubeAPI  
+  kubeui:
+    image: kubeui   
+    build:
+      context: ./KubeUI/KubeUI      
+    ports: 
+      - 4002:80
