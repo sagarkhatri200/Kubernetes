@@ -7,9 +7,13 @@ services:
       - 4001:80
     build:
       context: ./KubeAPI/KubeAPI  
+    deploy:     
+      replicas: 3
   kubeui:
     image: kubeui   
     build:
       context: ./KubeUI/KubeUI      
     ports: 
       - 4002:80
+    deploy:      
+      replicas: 2

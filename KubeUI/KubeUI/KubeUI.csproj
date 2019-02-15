@@ -5,6 +5,7 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>31908087-505b-43cb-a91a-01c890249648</UserSecretsId>
+    <DockerComposeProjectPath>..\..\kubeApi\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
 
