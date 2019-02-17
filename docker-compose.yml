@@ -1,19 +1,19 @@
 version: '3.4'
 
 services:
+  kubeui:
+    image: harpalsgh/kubeui
+    build:
+      context: .
+      dockerfile: KubeUI/Dockerfile
+    ports:
+      - 4002:80
+
   kubeapi:
-    image: kubeapi
+    image: harpalsgh/kubeapi
+    build:
+      context: .
+      dockerfile: kubeApi/Dockerfile
     ports:
       - 4001:80
-    build:
-      context: ./KubeAPI/KubeAPI  
-    deploy:     
-      replicas: 3
-  kubeui:
-    image: kubeui   
-    build:
-      context: ./KubeUI/KubeUI      
-    ports: 
-      - 4002:80
-    deploy:      
-      replicas: 2
+
