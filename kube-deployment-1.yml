@@ -1,0 +1,76 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubeapi
+spec:
+  selector:
+    app: kube
+    tier: backend
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: http
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeapi
+spec:
+  selector:
+    matchLabels:
+      app: kube
+      tier: backend
+      track: stable
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: kube
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: kubeapi
+          image: acrkubecde.azurecr.io/kubeapi:v3
+          ports:
+            - name: http
+              containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubeui
+spec:
+  selector:
+    app: kube
+    tier: frontend
+  ports:
+  - protocol: "TCP"
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubeui
+spec:
+  selector:
+    matchLabels:
+      app: kube
+      tier: frontend
+      track: stable
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: kube
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+      - name: kubeui
+        image: acrkubecde.azurecr.io/kubeui:v3
+       

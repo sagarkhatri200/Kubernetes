@@ -11,7 +11,7 @@ namespace kubeApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "Hello", "Kube" };
+            return new string[] { "Hello", "Azure Kubernetes" };
         }
 
         // GET api/values/5

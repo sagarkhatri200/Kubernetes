@@ -20,6 +20,7 @@ namespace KubeUI.Controllers
                 restClient.BaseUrl = new Uri("http://kubeapi/api/Values");
                 var request = new RestRequest(Method.GET);
 
+
                 var response = restClient.Execute<List<string>>(request);
 
                 var result = response.Content;

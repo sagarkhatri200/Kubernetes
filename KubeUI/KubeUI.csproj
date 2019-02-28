@@ -6,14 +6,22 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>31908087-505b-43cb-a91a-01c890249648</UserSecretsId>
     <DockerComposeProjectPath>..\..\kubeApi\docker-compose.dcproj</DockerComposeProjectPath>
+    <ApplicationInsightsResourceId>/subscriptions/585c6789-4e5e-48d3-a721-7cd5a6558aaa/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/KubeUI</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/585c6789-4e5e-48d3-a721-7cd5a6558aaa/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/KubeUI</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
     <PackageReference Include="RestSharp" Version="106.6.7" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>

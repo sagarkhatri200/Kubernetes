@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   kubeui:
-    image: harpalsgh/kubeui
+    image: acrkubecde.azurecr.io/kubeui:v3
     build:
       context: .
       dockerfile: KubeUI/Dockerfile
@@ -10,10 +10,9 @@ services:
       - 4002:80
 
   kubeapi:
-    image: harpalsgh/kubeapi
+    image: acrkubecde.azurecr.io/kubeapi:v3
     build:
       context: .
       dockerfile: kubeApi/Dockerfile
     ports:
       - 4001:80
-
