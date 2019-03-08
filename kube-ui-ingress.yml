@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kube-ui-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - k8test4.5milerestaurants.com
+    secretName: aks-ingress-tls
+  rules:
+  - host: k8test4.5milerestaurants.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kubeui
+          servicePort: 80     

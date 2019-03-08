@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
         - name: kubeapi
-          image: acrkubecde.azurecr.io/kubeapi:v4
+          image: acrkubecde.azurecr.io/kubeapi:v3
           ports:
             - name: http
               containerPort: 80
@@ -43,20 +43,13 @@ kind: Service
 metadata:
   name: kubeui
 spec:
-  loadBalancerIP: 52.179.6.87							   
   selector:
     app: kube
     tier: frontend
   ports:
-  - name: http
-    protocol: TCP
+  - protocol: "TCP"
     port: 80
-    targetPort: 80
-  - name: https
-    protocol: TCP
-    port: 443
     targetPort: 80  
-  type: LoadBalancer			
 ---
 apiVersion: apps/v1
 kind: Deployment

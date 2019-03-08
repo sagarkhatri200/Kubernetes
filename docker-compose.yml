@@ -10,7 +10,7 @@ services:
       - 4002:80
 
   kubeapi:
-    image: acrkubecde.azurecr.io/kubeapi:v3
+    image: acrkubecde.azurecr.io/kubeapi:v5
     build:
       context: .
       dockerfile: kubeApi/Dockerfile
