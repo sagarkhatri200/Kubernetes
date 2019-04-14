@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   kubeui:
-    image: acrkubecde.azurecr.io/kubeui:v3
+    image: "powersvr:5000/kubeui"     
     build:
       context: .
       dockerfile: KubeUI/Dockerfile
@@ -10,7 +10,7 @@ services:
       - 4002:80
 
   kubeapi:
-    image: acrkubecde.azurecr.io/kubeapi:v5
+    image: "powersvr:5000/kubeapi"    
     build:
       context: .
       dockerfile: kubeApi/Dockerfile

@@ -64,6 +64,7 @@ kubectl apply -f kube-deployment-sqlserver.yml
 #docker-compose
 kubectl --record deployment.apps/kubeapi set image deployment.v1.apps/kubeapi kubeapi=acrkubecde.azurecr.io/kubeapi:v5
 #kubectl --record deployment.apps/kubeapi[deployment name] set image deployment.v1.apps/kubeapi[deploymentname] kubeapi[containername]=acrkubecde.azurecr.io/kubeapi:v5[image version]
+#kubectl --record deployment.apps/eberrysoftwaresweb set image deployment.v1.apps/eberrysoftwaresweb eberrysoftwareswebimage=sagarkhatri200/softwareservices:v4
 
 
 
@@ -83,10 +84,17 @@ kubectl get service -l app=nginx-ingress --namespace kube-system
 #secret and ingress
 # get the private key and crt file. rename then to aks-ingress-tls.key and aks-ingress-tls.crt
 kubectl create secret tls aks-ingress-tls --key aks-ingress-tls.key --cert aks-ingress-tls.crt
+# kubectl create secret tls tls-eberrysoftwares-secret --key C:\EberrySoftwares\Repos\EberrySoftwares.com\Certs\eberrysoftwares_com.key --cert C:\EberrySoftwares\Repos\EberrySoftwares.com\Certs\eberrysoftwares_com.crt
+# kubectl create secret tls tls-star-5milerestaurants-secret --key C:\5MileRestaurants\Repos\5mr_net_restcore\CERTS\STAR_5milerestaurants_com.key --cert C:\5MileRestaurants\Repos\5mr_net_restcore\CERTS\STAR_5milerestaurants_com.crt
+
 kubectl apply -f kube-ui-ingress.yml
 
 kubectl get ingress kube-ui-ingress 
 kubectl get all
 
+
+# Configure Kubectl to pull private images
+#kubectl create secret generic regcred --from-file=.dockerconfigjson=C:\Users\skhatri.EB\.docker\config.json --type=kubernetes.io/dockerconfigjson
+#kubectl create secret docker-registry regcred --docker-server=https://index.docker.io/v1 --docker-username=sagarkhatri200 --docker-password=!Berry08 --docker-email=sagarkhatri200@Hotmail.com
 
  
