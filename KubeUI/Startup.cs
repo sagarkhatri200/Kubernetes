@@ -70,7 +70,7 @@ namespace KubeUI
                 .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(elasticUri))
                 {
                     AutoRegisterTemplate = true,
-                })
+                })                
             .CreateLogger();
 
 

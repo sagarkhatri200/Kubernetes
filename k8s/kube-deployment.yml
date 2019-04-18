@@ -95,10 +95,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - k8test4.5milerestaurants.com
-    secretName: k8test4-5milerestaurants-ingress-cert
+    - k8test.eberrysolutions.com
+    secretName: k8test-eberrysolutions-ingress-cert
   rules:
-  - host: k8test4.5milerestaurants.com
+  - host: k8test.eberrysolutions.com
     http:
       paths:
       - path: /
